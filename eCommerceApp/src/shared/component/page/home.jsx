@@ -7,10 +7,10 @@ import {APP_NAME} from '../../config'
 
 const HomePage = () =>
   <div>
-    <Helmetform
+    <Helmet
       meta={[
         { name: 'header', content:'Landing Page!' },
-        { content: APP_NAME},
+        { property: 'title', content: APP_NAME},
       ]}
       />
       <div className="jumbotron">
@@ -22,3 +22,4 @@ const HomePage = () =>
           <button type="button" role="button" className="btn-primary">CLICK ME</button>
         </p>
       </div>
+export default HomePage
