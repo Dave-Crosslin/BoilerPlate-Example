@@ -49,18 +49,18 @@ partitionList(node, x){
     return list;
   }
   getLength(){
-    let result;
-    let head = node;
+    let result = 0;
+    let node = this.head;
 
     while(node != null){
-      result += 1;
+      result ++;
       node = node.next;
     }
     return result;
   }
     getTail(){
       let result;
-      let head = node;
+      let node = this.head;
 
       while(node != null){
         if(node.next === null){

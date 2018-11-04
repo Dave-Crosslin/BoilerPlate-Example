@@ -1,5 +1,7 @@
 var Node = require('./Node.js');
 var LinkedList = require('./LinkedList.js');
+var Extension = require('./helperFunctions.js');
+let ext = new Extension();
 
 var n1 = new Node(5);
 var n2 = new Node(7);
@@ -22,34 +24,7 @@ n6.next = n7;
 var listA = new LinkedList(n1);
 var listB = new LinkedList(n1b);
 
-function listsIntersect(listA, listB){
-  if (listA == null || listB == null){
-    return null;
-  }
-  listA.tail = listA.getTail;
-  listB.tail = listB.getTail;
-  listA.length = listA.getLength;
-  listB.length = listB.getLength;
-
-  if(listA.tail != listB.tail){
-    return null;
-  }
-let shorter = listA.length < listB.length? listA : listB;
-let longer = listB.length < listA.length? listB : listA;
-
-let count = longer.getLength - shorter.getLength;
 
 
-while(count != 0){
-  longer.head = longer.head.next;
-  count--;
-}
-  while (shorter.head != longer.head){
-    shorter.head = shorter.head.next;
-    longer.head = longer.head.next;
-  }
-  return shorter.head
-}
-
-let result = listsIntersect(listA, listB);
+let result = ext.getIntersectingNode(listA, listB);
 console.log(result);
